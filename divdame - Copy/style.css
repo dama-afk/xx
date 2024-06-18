@@ -1,0 +1,201 @@
+/* Glavni stil body elementa */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Stil za pozadinsku sliku sa efektom blur i tamnim tonom */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("portrait-sexy-handsome-fashion-male-model-man-dressed-elegant-suit-black-studio-lights-background.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px) brightness(0.3);
+    opacity: 0.6; /* Prilagodite vrednost po potrebi za pravilno potamnjivanje */
+    z-index: -1; /* Stavljamo ispod sadržaja body elementa */
+}
+
+/* Stil za logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 200px;
+    border-radius: 30px;
+    margin-top: 80px;
+    border-top: 5px solid rgb(209, 163, 14);
+    border-left: 7px solid rgb(209, 163, 14);
+    animation: pulseRotate 3s infinite;
+}
+
+@keyframes pulseRotate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1) rotate(1deg);
+    }
+    75% {
+        transform: scale(1) rotate(-1deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Animacija za logo */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+/* Stil za naslove */
+.naslovi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    text-align: center; /* Centriranje teksta */
+}
+
+h1 {
+    color: transparent;
+    background-image: linear-gradient(to bottom, #FFDF00, #FFB90F);
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 1px;
+    animation: colorChange 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Stil za formu sa opcijama */
+.izaberi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%; /* Širina 90% ekrana */
+    max-width: 8000px; /* Maksimalna širina */
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Animacija fadeInUp za formu */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stil za opcije */
+.opcije {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Širina 100% roditeljskog elementa */
+    margin-top: 30px;
+}
+
+/* Stil za dugmad */
+.dugmad {
+    width: 100%; /* Širina 100% roditeljskog elementa */
+    max-width: 300px; /* Maksimalna širina */
+    height: 120px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #f8d568, #f3c53d);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    animation: pulse 2s infinite, shine 3s linear infinite;
+}
+
+/* Animacija shine za dugmad */
+@keyframes shine {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Promena boje na hover */
+.dugmad:hover {
+    background: linear-gradient(to right, #6d5305, #9c7a12, #b68d14, #ce9e0f);
+    color: aliceblue;
+}
+
+/* Media query za responsivnost */
+@media (max-width: 768px) {
+    .logo {
+        width: 150px; /* Prilagodba širine za manje ekrane */
+        height: 300px; /* Prilagodba visine za manje ekrane */
+    }
+
+    h1 {
+        font-size: 36px; /* Prilagodba veličine fonta za manje ekrane */
+    }
+
+    .dugmad {
+        height: 80px; /* Prilagodba visine dugmadi za manje ekrane */
+        width: 110px;
+        font-size: 14px; /* Prilagodba veličine fonta dugmadi za manje ekrane */
+    }
+}
